@@ -1,7 +1,13 @@
 # databases-2024
 ## 도서-대출시스템
 
-
+### 회원 릴레이션
+- 회원번호(기본키), 회원이름, 주소, 전화번호, 가입일
+- 기능
+  - 전체보기
+  - 회원번호로 검색
+  - 회원정보 추가/ 수정/ 삭제
+  - 
 ```
 CREATE TABLE member (
 	member_id VARCHAR(20) NOT NULL,
@@ -11,17 +17,32 @@ CREATE TABLE member (
 	join_date DATE NOT NULL,
 	primary key (member_id)
 );
+```
 
 
+### 도서 릴레이션
+- 책번호(기본키), 제목, 출판연도
+- 기능
+  - 전체보기
+  - 책 제목으로 검색
+  - 책 정보 추가/ 수정/ 삭제
+```
 CREATE TABLE book (
 	book_id VARCHAR(20) NOT NULL,
 	title VARCHAR(100) NOT NULL,
 	publish_year VARCHAR(10),
 	primary key (book_id)
 );
+```
 
 
-
+### 대출 릴레이션
+- 대출번호(기본키), 회원번호(외래키), 책번호(외래키), 대출날짜, 반납예정일, 상태
+- 기능
+  - 전체보기
+  - 회원번호/ 대출번호로 검색
+  - 대출 정보 추가/ 수정/ 삭제
+```
 CREATE TABLE loan (
 	loan_id VARCHAR(20) NOT NULL,
 	member_id VARCHAR(20) NOT NULL,
@@ -33,8 +54,15 @@ CREATE TABLE loan (
 	FOREIGN KEY (member_id) REFERENCES member(member_id),
 	FOREIGN KEY (book_id) REFERENCES book(book_id)
 );
+```
 
-	
+
+### 저자 릴레이션
+-  책번호(기본키, 외래키), 저자(기본키)
+-  기능
+  - 전체보기
+  - 저자 정보 추가/ 수정/ 삭제
+```
 CREATE TABLE author(
 	book_id VARCHAR(20),
 	author VARCHAR(50),
@@ -92,29 +120,5 @@ SELECT *
 
 ```
 
-### 도서 릴레이션
-- 책번호(기본키), 제목, 출판연도
-- 기능
-  - 전체보기
-  - 책 제목으로 검색
-  - 책 정보 추가/ 수정/ 삭제
 
-### 대출 릴레이션
-- 대출번호(기본키), 회원번호(외래키), 책번호(외래키), 대출날짜, 반납예정일, 상태
-- 기능
-  - 전체보기
-  - 회원번호/ 대출번호로 검색
-  - 대출 정보 추가/ 수정/ 삭제
 
-### 회원 릴레이션
-- 회원번호(기본키), 회원이름, 주소, 전화번호, 가입일
-- 기능
-  - 전체보기
-  - 회원번호로 검색
-  - 회원정보 추가/ 수정/ 삭제
-
-### 저자 릴레이션
--  책번호(기본키, 외래키), 저자(기본키)
--  기능
-  - 전체보기
-  - 저자 정보 추가/ 수정/ 삭제
