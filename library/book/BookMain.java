@@ -17,12 +17,14 @@ public class BookMain {
             System.out.println(book);
         }
 
-        System.out.println("bookId으로 검색");
-        Book title1 = BookService.selectById("a001");
-        if (title1 != null) {
-            System.out.println(title1);
-        } else {
-            System.out.println("a001 not exist !!");
+        System.out.println("책제목으로 검색");
+        List<Book> bookList2 = BookService.selectByTitle("title2");
+        for (Book book : bookList2) {
+            if (book != null) {
+                System.out.println(book);
+            } else {
+                System.out.println("title1 not exist !!");
+            }
         }
 
         System.out.println("책 추가");
