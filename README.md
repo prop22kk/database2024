@@ -1,8 +1,6 @@
 # databases-2024
 ## 도서-대출시스템
 
-<img width="464" alt="image" src="https://github.com/user-attachments/assets/2ddf29fa-1e70-41f0-8a73-15c21acdfee5" />
-
 
 ```
 CREATE TABLE member (
